@@ -1,0 +1,20 @@
+<resources>
+  <string name="app_name">Stock Hawk</string>
+
+  <string name="action_example">Example action</string>
+
+  <string name="action_settings">Settings</string>
+  <string name="action_change_units">Change Units</string>
+  <string name="symbol_search">Symbol Search</string>
+  <string name="content_test">Search for a Stock Symbol</string>
+  <string name="pref_stock_status_key" translatable="false">stock-status</string>
+  <string name="input_hint">FB</string>
+  <string name="input_prefill"></string>
+
+  <string name="no_network_text">You require an Internet Connection. Network is not able to Connect.</string>
+  <string name="empty_stocks_list_invalid_stock">No stocks information available.
+        The stock you entered is not recognized by the server.</string>
+  <string name="empty_stock_list_server_down">No data currently Available. The Server is Down.</string>
+  <string name="empty_stock_list_server_error">No data Available. Error in server.</string>
+
+</resources>
