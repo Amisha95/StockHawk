@@ -1,4 +1,4 @@
-package com.sam_chordas.android.stockhawk.rest;
+package com.m1.android.stockhawk.rest;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -11,14 +11,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.sam_chordas.android.stockhawk.R;
-import com.sam_chordas.android.stockhawk.data.QuoteColumns;
-import com.sam_chordas.android.stockhawk.data.QuoteProvider;
-import com.sam_chordas.android.stockhawk.touch_helper.ItemTouchHelperAdapter;
-import com.sam_chordas.android.stockhawk.touch_helper.ItemTouchHelperViewHolder;
+import com.m1.android.stockhawk.R;
+import com.m1.android.stockhawk.data.QuoteColumns;
+import com.m1.android.stockhawk.data.QuoteProvider;
+import com.m1.android.stockhawk.touch_helper.ItemTouchHelperAdapter;
+import com.m1.android.stockhawk.touch_helper.ItemTouchHelperViewHolder;
 
 /**
- * Created by sam_chordas on 10/6/15.
+ * Created by m1 on 10/6/15.
  *  Credit to skyfishjy gist:
  *    https://gist.github.com/skyfishjy/443b7448f59be978bc59
  * for the code structure

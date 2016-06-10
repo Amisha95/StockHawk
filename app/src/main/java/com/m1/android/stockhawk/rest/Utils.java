@@ -1,4 +1,4 @@
-package com.sam_chordas.android.stockhawk.rest;
+package com.m1.android.stockhawk.rest;
 
 import android.content.ContentProviderOperation;
 import android.content.Context;
@@ -6,10 +6,10 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import com.sam_chordas.android.stockhawk.R;
-import com.sam_chordas.android.stockhawk.data.QuoteColumns;
-import com.sam_chordas.android.stockhawk.data.QuoteProvider;
-import com.sam_chordas.android.stockhawk.service.StockTaskService;
+import com.m1.android.stockhawk.R;
+import com.m1.android.stockhawk.data.QuoteColumns;
+import com.m1.android.stockhawk.data.QuoteProvider;
+import com.m1.android.stockhawk.service.StockTaskService;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -67,6 +67,7 @@ public class Utils {
     return batchOperations;
   }
 
+
   public static String truncateBidPrice(String bidPrice){
     bidPrice = String.format("%.2f", Float.parseFloat(bidPrice));
     return bidPrice;
@@ -91,8 +92,8 @@ public class Utils {
 
   public static ContentProviderOperation buildBatchOperation(JSONObject jsonObject){
     ContentProviderOperation.Builder builder = ContentProviderOperation.newInsert(
-        QuoteProvider.Quotes.CONTENT_URI);
-
+            QuoteProvider.Quotes.CONTENT_URI);
+    String bid=null;
     try {
       String change = jsonObject.getString("Change");
       builder.withValue(QuoteColumns.SYMBOL, jsonObject.getString("symbol"));
@@ -106,9 +107,17 @@ public class Utils {
       }else{
         builder.withValue(QuoteColumns.ISUP, 1);
       }
-
+     bid=jsonObject.getString("Bid");
     } catch (JSONException e){
       e.printStackTrace();
+    }
+    if(bid==null || bid.equals("null"))
+    {
+      Log.d(LOG_TAG,"bid is null.");
+    }
+    else
+    {
+      Log.d(LOG_TAG,"bid is not null." +bid);
     }
     return builder.build();
   }

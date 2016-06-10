@@ -1,4 +1,4 @@
-package com.sam_chordas.android.stockhawk.touch_helper;
+package com.m1.android.stockhawk.touch_helper;
 
 /**
  * Interface to enable swipe to delete
