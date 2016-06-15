@@ -16,5 +16,6 @@
         The stock you entered is not recognized by the server.</string>
   <string name="empty_stock_list_server_down">No data currently Available. The Server is Down.</string>
   <string name="empty_stock_list_server_error">No data Available. Error in server.</string>
+  <string name="title_lineGraph">Line Graph</string>
 
 </resources>
