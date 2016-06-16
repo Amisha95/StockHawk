@@ -6,7 +6,9 @@
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:paddingLeft="16dp"
+    android:paddingStart="16dp"
     android:paddingRight="16dp"
+    android:paddingEnd="16dp"
     >
 
 
@@ -15,8 +17,9 @@
       style="@style/StockSymbolTextStyle"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:gravity="left|center_vertical"
+      android:gravity="start|center_vertical"
       tools:text="GOOG"
+      android:contentDescription="@string/textSymbol"
       />
 
   <LinearLayout
@@ -31,7 +34,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingRight="10sp"
+        android:paddingEnd="10sp"
         tools:text="1000.00"
+        android:contentDescription="@string/textBid"
         />
     <TextView
         android:id="@+id/change"
@@ -40,8 +45,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="3dp"
+        android:paddingStart="3dp"
         android:paddingRight="3dp"
+        android:paddingEnd="3dp"
         tools:text="100%"
+        android:contentDescription="@string/textPercent"
         />
   </LinearLayout>
 </LinearLayout>

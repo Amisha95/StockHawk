@@ -17,6 +17,22 @@
   <string name="empty_stock_list_server_down">No data currently Available. The Server is Down.</string>
   <string name="empty_stock_list_server_error">No data Available. Error in server.</string>
   <string name="title_lineGraph">Line Graph</string>
+  <string name="text_alreadySaved">This Stock is already Saved!</string>
+  <string name="fab_button">Click on this button for adding more stocks to your list.</string>
+  <string name="text_stockList">This is the List of your stocks. Swipe to delete.</string>
+  <string name="text_lineGraph">This is the Line Graph of your stock over time.</string>
+  <string name="textSymbol">This is your Stock Symbol.</string>
+  <string name="textBid">Bid Price</string>
+  <string name="textPercent">Percent Change</string>
+  <string name="title_settingsActivity">Settings</string>
+  <string-array name="pref_entries">
+    <item>English</item>
+    <item>Arabic</item>
+  </string-array>
 
+  <string-array name="pref_values">
+    <item>english</item>
+    <item>arabic</item>
+  </string-array>
 
 </resources>

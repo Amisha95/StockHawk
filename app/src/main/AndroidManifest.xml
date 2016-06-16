@@ -22,6 +22,15 @@
         android:supportsRtl="true">
 
         <activity
+            android:name=".ui.SettingsActivity"
+            android:label="@string/title_settingsActivity"
+            android:parentActivityName=".ui.MyStocksActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.m1.android.stockhawk.ui.MyStocksActivity" />
+        </activity>
+
+        <activity
             android:name=".ui.LineGraph"
             android:label="@string/title_lineGraph"
             android:parentActivityName=".ui.MyStocksActivity">
@@ -29,7 +38,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.m1.android.stockhawk.ui.MyStocksActivity" />
         </activity>
-
         <activity
             android:name="com.m1.android.stockhawk.ui.MyStocksActivity"
             android:label="@string/app_name" >
