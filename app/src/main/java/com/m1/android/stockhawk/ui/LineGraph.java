@@ -16,7 +16,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
@@ -25,6 +27,8 @@ import java.util.ArrayList;
 
 public class LineGraph extends ActionBarActivity
 {
+    ArrayList<Entry> Entries=new ArrayList<>();
+    ArrayList<String> Labels=new ArrayList<String>();
     String url="https://query.yahooapis.com/v1/public/yql";
     String Search="format";
     String SearchVal="json";
@@ -47,9 +51,13 @@ public class LineGraph extends ActionBarActivity
         String Symbol=intent.getStringExtra("symbol");
         String query="Select * from yahoo.finance.historicaldata where symbol ='"
                 + Symbol + "' and startDate = '2016-01-01' and endDate = '2016-01-25'";
-        buildUri=Uri.parse(url).buildUpon().appendQueryParameter(QueryKey,query).appendQueryParameter(SearchVal,Search)
-                .appendQueryParameter(DiagVal,Diag).appendQueryParameter(EnvVal,Env)
-                .appendQueryParameter(CallVal,Call).build();
+        buildUri=Uri.parse(url).buildUpon()
+                .appendQueryParameter(QueryKey,query)
+                //.appendQueryParameter(Search,SearchVal)
+                .appendQueryParameter(Diag,DiagVal)
+                .appendQueryParameter(Env,EnvVal)
+                //.appendQueryParameter(Call,CallVal)
+                .build();
 
         lineChart=(LineChart)findViewById(R.id.linechart);
         LineGraphTask lineGraphTask=new LineGraphTask();
@@ -58,17 +66,21 @@ public class LineGraph extends ActionBarActivity
 
     public class LineGraphTask extends AsyncTask<String,String,String>
     {
-        ArrayList<Entry> Entries=new ArrayList<>();
-        ArrayList<String> Labels=new ArrayList<String>();
         @Override
         protected String doInBackground(String... params) {
             HttpURLConnection urlConnection = null;
+            BufferedReader bufferedReader=null;
             int val=1;
             try {
                 URL url=new URL(buildUri.toString());
                 urlConnection =(HttpURLConnection)url.openConnection();
                 urlConnection.setRequestMethod("GET");
                 urlConnection.connect();
+                InputStream inputStream=urlConnection.getInputStream();
+                if(inputStream==null)
+                {
+                    return null;
+                }
 
             } catch (MalformedURLException e) {
                 e.printStackTrace();
@@ -121,7 +133,21 @@ public class LineGraph extends ActionBarActivity
             lineChart.setDescription("Stock Values");
             lineChart.setData(data);
             lineChart.animateY(5000);
-
         }
     }
 }
+
+//Query built in yql console: https://query.yahooapis.com/v1/public/yql?q=Select%20*%20from%20yahoo.finance.historicaldata%20
+// where%20symbol%20%3D'yhoo'%20and%20startDate%20%3D%20
+// '2016-01-01'%20and%20endDate%20%3D%20'2016-01-25'&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys
+
+
+
+
+
+
+
+
+
+
+
