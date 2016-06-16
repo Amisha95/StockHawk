@@ -103,13 +103,27 @@ public class LineGraph extends ActionBarActivity
                     for(int i=0;i<jsonArray.length();i++){
                         JSONObject jsonString = jsonArray.getJSONObject(i);
                         Entries.add(new Entry((int) Float.parseFloat(jsonString.getString("Adj_Close")),i+1));
-                        val++;
                     }
+
+                    Labels.add("1");
+                    Labels.add("2");
+                    Labels.add("3");
+                    Labels.add("4");
+                    Labels.add("5");
+                    Labels.add("6");
+                    Labels.add("7");
+                    Labels.add("8");
+                    Labels.add("9");
+                    Labels.add("10");
+                    Labels.add("11");
+                    Labels.add("12");
+                    Labels.add("13");
+                    Labels.add("14");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
-                JSONResult= String.valueOf(Entries);
+              //  JSONResult= String.valueOf(Entries);
 
             } catch (MalformedURLException e) {
                 e.printStackTrace();
@@ -119,22 +133,7 @@ public class LineGraph extends ActionBarActivity
                 e.printStackTrace();
             }
 
-
-            Labels.add("1");
-            Labels.add("2");
-            Labels.add("3");
-            Labels.add("4");
-            Labels.add("5");
-            Labels.add("6");
-            Labels.add("7");
-            Labels.add("8");
-            Labels.add("9");
-            Labels.add("10");
-            Labels.add("11");
-            Labels.add("12");
-            Labels.add("13");
-            Labels.add("14");
-            return JSONResult;
+            return null;
         }
 
         @Override
