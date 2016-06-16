@@ -123,8 +123,6 @@ public class LineGraph extends ActionBarActivity
                     e.printStackTrace();
                 }
 
-              //  JSONResult= String.valueOf(Entries);
-
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (ProtocolException e) {
