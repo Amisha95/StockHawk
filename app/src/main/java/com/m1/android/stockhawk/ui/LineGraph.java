@@ -99,7 +99,7 @@ public class LineGraph extends ActionBarActivity
 
                 for(int i=0;i<jsonArray.length();i++){
                     JSONObject jsonString = jsonArray.getJSONObject(i);
-                    Entries.add(new Entry(val,(int) Float.parseFloat(jsonString.getString("Adj_Close"))));
+                    Entries.add(new Entry(val,(int) Float.parseFloat(jsonString.getString("Adj_Close")),i+1));
                     val++;
                 }
             } catch (JSONException e) {
