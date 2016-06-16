@@ -54,10 +54,10 @@ public class LineGraph extends ActionBarActivity
                 + Symbol + "' and startDate = '2016-01-01' and endDate = '2016-01-25'";
         buildUri=Uri.parse(url).buildUpon()
                 .appendQueryParameter(QueryKey,query)
-                //.appendQueryParameter(Search,SearchVal)
+                .appendQueryParameter(Search,SearchVal)
                 .appendQueryParameter(Diag,DiagVal)
                 .appendQueryParameter(Env,EnvVal)
-                //.appendQueryParameter(Call,CallVal)
+                .appendQueryParameter(Call,CallVal)
                 .build();
 
         lineChart=(LineChart)findViewById(R.id.linechart);
@@ -95,14 +95,14 @@ public class LineGraph extends ActionBarActivity
 
                 try
                 {
-                    JSONObject jsonObject=new JSONObject();
+                    JSONObject jsonObject=new JSONObject(JSONResult);
                     JSONObject jsonObject1=jsonObject.getJSONObject("query");
                     JSONObject jsonObject3=jsonObject1.getJSONObject("results");
                     JSONArray jsonArray=jsonObject3.getJSONArray("quote");
 
                     for(int i=0;i<jsonArray.length();i++){
                         JSONObject jsonString = jsonArray.getJSONObject(i);
-                        Entries.add(new Entry(val,(int) Float.parseFloat(jsonString.getString("Adj_Close")),i+1));
+                        Entries.add(new Entry((int) Float.parseFloat(jsonString.getString("Adj_Close")),i+1));
                         val++;
                     }
                 } catch (JSONException e) {
