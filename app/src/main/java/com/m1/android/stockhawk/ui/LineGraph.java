@@ -19,6 +19,7 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
@@ -70,6 +71,7 @@ public class LineGraph extends ActionBarActivity
         protected String doInBackground(String... params) {
             HttpURLConnection urlConnection = null;
             BufferedReader bufferedReader=null;
+            String JSONResult = null;
             int val=1;
             try {
                 URL url=new URL(buildUri.toString());
@@ -81,6 +83,33 @@ public class LineGraph extends ActionBarActivity
                 {
                     return null;
                 }
+                bufferedReader=new BufferedReader(new InputStreamReader(inputStream));
+                StringBuffer stringBuffer=new StringBuffer();
+                String line;
+                while((line=bufferedReader.readLine())!=null)
+                {
+                    stringBuffer.append(line +"\n");
+                }
+
+                JSONResult=stringBuffer.toString();
+
+                try
+                {
+                    JSONObject jsonObject=new JSONObject();
+                    JSONObject jsonObject1=jsonObject.getJSONObject("query");
+                    JSONObject jsonObject3=jsonObject1.getJSONObject("results");
+                    JSONArray jsonArray=jsonObject3.getJSONArray("quote");
+
+                    for(int i=0;i<jsonArray.length();i++){
+                        JSONObject jsonString = jsonArray.getJSONObject(i);
+                        Entries.add(new Entry(val,(int) Float.parseFloat(jsonString.getString("Adj_Close")),i+1));
+                        val++;
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                JSONResult= String.valueOf(Entries);
 
             } catch (MalformedURLException e) {
                 e.printStackTrace();
@@ -90,21 +119,6 @@ public class LineGraph extends ActionBarActivity
                 e.printStackTrace();
             }
 
-            try
-            {
-                JSONObject jsonObject=new JSONObject();
-                JSONObject jsonObject1=jsonObject.getJSONObject("query");
-                JSONObject jsonObject3=jsonObject1.getJSONObject("results");
-                JSONArray jsonArray=jsonObject3.getJSONArray("quote");
-
-                for(int i=0;i<jsonArray.length();i++){
-                    JSONObject jsonString = jsonArray.getJSONObject(i);
-                    Entries.add(new Entry(val,(int) Float.parseFloat(jsonString.getString("Adj_Close")),i+1));
-                    val++;
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
 
             Labels.add("1");
             Labels.add("2");
@@ -120,7 +134,7 @@ public class LineGraph extends ActionBarActivity
             Labels.add("12");
             Labels.add("13");
             Labels.add("14");
-            return null;
+            return JSONResult;
         }
 
         @Override
