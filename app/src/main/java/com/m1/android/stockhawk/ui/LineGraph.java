@@ -119,6 +119,11 @@ public class LineGraph extends ActionBarActivity
                     Labels.add("12");
                     Labels.add("13");
                     Labels.add("14");
+                    Labels.add("15");
+                    Labels.add("16");
+                    Labels.add("17");
+                    Labels.add("18");
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -143,14 +148,11 @@ public class LineGraph extends ActionBarActivity
             LineData data = new LineData(Labels,dataset);
             lineChart.setDescription("Stock Values");
             lineChart.setData(data);
-            lineChart.animateY(5000);
+            lineChart.animateY(2000);
         }
     }
 }
 
-//Query built in yql console: https://query.yahooapis.com/v1/public/yql?q=Select%20*%20from%20yahoo.finance.historicaldata%20
-// where%20symbol%20%3D'yhoo'%20and%20startDate%20%3D%20
-// '2016-01-01'%20and%20endDate%20%3D%20'2016-01-25'&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys
 
 
 
