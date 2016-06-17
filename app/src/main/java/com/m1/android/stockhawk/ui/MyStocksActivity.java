@@ -195,7 +195,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
     {
       setLocal("english");
     }
-    else
+    else if(prefs.getString("language","english").equals("arabic"))
     {
       setLocal("arabic");
     }

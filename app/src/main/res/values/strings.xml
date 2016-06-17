@@ -1,5 +1,5 @@
 <resources>
-  <string name="app_name">Stock Hawk</string>
+  <string name="app_name" translatable="false">Stock Hawk</string>
 
   <string name="action_example">Example action</string>
 
@@ -25,6 +25,7 @@
   <string name="textBid">Bid Price</string>
   <string name="textPercent">Percent Change</string>
   <string name="title_settingsActivity">Settings</string>
+  <string name="message">Message in English.</string>
   <string-array name="pref_entries">
     <item>English</item>
     <item>Arabic</item>
