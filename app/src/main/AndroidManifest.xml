@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.m1.android.stockhawk" >
+    package="com.m1.android.stockhawk">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
@@ -10,26 +10,14 @@
         android:name="com.google.android.gcm.demo.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
-    <uses-permission
-        android:name="com.google.android.gcm.demo.permission.C2D_MESSAGE" />
-
+    <uses-permission android:name="com.google.android.gcm.demo.permission.C2D_MESSAGE" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme"
-        android:supportsRtl="true">
-
-        <activity
-            android:name=".ui.SettingsActivity"
-            android:label="@string/title_settingsActivity"
-            android:parentActivityName=".ui.MyStocksActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.m1.android.stockhawk.ui.MyStocksActivity" />
-        </activity>
-
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
         <activity
             android:name=".ui.LineGraph"
             android:label="@string/title_lineGraph"
@@ -39,25 +27,38 @@
                 android:value="com.m1.android.stockhawk.ui.MyStocksActivity" />
         </activity>
         <activity
-            android:name="com.m1.android.stockhawk.ui.MyStocksActivity"
-            android:label="@string/app_name" >
+            android:name=".ui.MyStocksActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name="com.m1.android.stockhawk.service.StockTaskService"
-            android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE"
-            android:exported="true">
+
+        <receiver android:name=".widget.MyAppWidgetProvider">
             <intent-filter>
-                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/app_widget_provider"/>
+            </receiver>
+
+        <service
+            android:name=".service.StockTaskService"
+            android:exported="true"
+            android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY" />
             </intent-filter>
         </service>
-        <service android:name="com.m1.android.stockhawk.service.StockIntentService" />
+        <service android:name=".service.StockIntentService" />
+
         <provider
+            android:name=".data.generated.QuoteProvider"
             android:authorities="com.m1.android.stockhawk.data.QuoteProvider"
-            android:name="com.m1.android.stockhawk.data.generated.QuoteProvider"
-            android:exported="false"/>
+            android:exported="false" />
+
     </application>
 
 </manifest>

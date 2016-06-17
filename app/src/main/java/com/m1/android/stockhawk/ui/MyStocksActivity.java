@@ -5,21 +5,16 @@ import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
-import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.InputType;
-import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -42,8 +37,6 @@ import com.m1.android.stockhawk.service.StockTaskService;
 import com.m1.android.stockhawk.touch_helper.SimpleItemTouchHelperCallback;
 import com.melnykov.fab.FloatingActionButton;
 
-import java.util.Locale;
-
 public class MyStocksActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>{
 
   /**
@@ -53,8 +46,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
   /**
    * Used to store the last screen title. For use in {@link #restoreActionBar()}.
    */
-  static SharedPreferences prefs;
-  static PreferenceChangeListener listener;
+
   private CharSequence mTitle;
   private Intent mServiceIntent;
   private ItemTouchHelper mItemTouchHelper;
@@ -174,42 +166,6 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
     }
   }
 
-  private class PreferenceChangeListener implements SharedPreferences.OnSharedPreferenceChangeListener {
-
-    @Override
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-      onStart();
-    }
-  }
-
-  Locale myLocale;
-  @Override
-  public void onStart()
-  {
-
-    super.onStart();
-    prefs= PreferenceManager.getDefaultSharedPreferences(mContext);
-    listener=new PreferenceChangeListener();
-    prefs.registerOnSharedPreferenceChangeListener(listener);
-    if(prefs.getString("language","english").equals("english"))
-    {
-      setLocal("english");
-    }
-    else if(prefs.getString("language","english").equals("arabic"))
-    {
-      setLocal("arabic");
-    }
-  }
-
-  private void setLocal(String language)
-  {
-    myLocale=new Locale(language);
-    Resources resources=getResources();
-    DisplayMetrics displayMetrics=resources.getDisplayMetrics();
-    Configuration configuration=resources.getConfiguration();
-    configuration.locale=myLocale;
-    resources.updateConfiguration(configuration,displayMetrics);
-  }
 
   @Override
   public void onResume() {
@@ -267,8 +223,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
 
     //noinspection SimplifiableIfStatement
     if (id == R.id.action_settings) {
-      Intent intent=new Intent(this,SettingsActivity.class);
-      startActivity(intent);
+      return true;
     }
 
     if (id == R.id.action_change_units){

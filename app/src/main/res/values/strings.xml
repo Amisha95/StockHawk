@@ -1,39 +1,41 @@
 <resources>
-  <string name="app_name" translatable="false">Stock Hawk</string>
+    <string name="app_name" translatable="false">Stock Hawk</string>
 
-  <string name="action_example">Example action</string>
+    <string name="action_example">Example action</string>
 
-  <string name="action_settings">Settings</string>
-  <string name="action_change_units">Change Units</string>
-  <string name="symbol_search">Symbol Search</string>
-  <string name="content_test">Search for a Stock Symbol.</string>
-  <string name="pref_stock_status_key" translatable="false">stock-status</string>
-  <string name="input_hint">FB</string>
-  <string name="input_prefill"></string>
+    <string name="action_settings">Settings</string>
+    <string name="action_change_units">Change Units</string>
+    <string name="symbol_search">Symbol Search</string>
+    <string name="content_test">Search for a Stock Symbol.</string>
+    <string name="pref_stock_status_key" translatable="false">stock-status</string>
+    <string name="input_hint">FB</string>
+    <string name="input_prefill"></string>
 
-  <string name="no_network_text">You require an Internet Connection. Network is not able to Connect.</string>
+    <string name="no_network_text">You require an Internet Connection. Network is not able to Connect.</string>
   <string name="empty_stocks_list_invalid_stock">No stocks information available.
         The stock you entered is not recognized by the server.</string>
-  <string name="empty_stock_list_server_down">No data currently Available. The Server is Down.</string>
-  <string name="empty_stock_list_server_error">No data Available. Error in server.</string>
-  <string name="title_lineGraph">Line Graph</string>
-  <string name="text_alreadySaved">This Stock is already Saved!</string>
-  <string name="fab_button">Click on this button for adding more stocks to your list.</string>
-  <string name="text_stockList">This is the List of your stocks. Swipe to delete.</string>
-  <string name="text_lineGraph">This is the Line Graph of your stock over time.</string>
-  <string name="textSymbol">This is your Stock Symbol.</string>
-  <string name="textBid">Bid Price</string>
-  <string name="textPercent">Percent Change</string>
-  <string name="title_settingsActivity">Settings</string>
-  <string name="message">Message in English.</string>
-  <string-array name="pref_entries">
-    <item>English</item>
-    <item>Arabic</item>
-  </string-array>
+    <string name="empty_stock_list_server_down">No data currently Available. The Server is Down.</string>
+    <string name="empty_stock_list_server_error">No data Available. Error in server.</string>
+    <string name="title_lineGraph">Line Graph</string>
+    <string name="text_alreadySaved">This Stock is already Saved!</string>
+    <string name="fab_button">Click on this button for adding more stocks to your list.</string>
+    <string name="text_stockList">This is the List of your stocks. Swipe to delete.</string>
+    <string name="text_lineGraph">This is the Line Graph of your stock over time.</string>
+    <string name="textSymbol">This is your Stock Symbol.</string>
+    <string name="textBid">Bid Price</string>
+    <string name="textPercent">Percent Change</string>
+    <string name="title_settingsActivity">Settings</string>
+    <string name="message">Message in English.</string>
+    <string-array name="pref_entries">
+        <item>English</item>
+        <item>Arabic</item>
+    </string-array>
 
-  <string-array name="pref_values">
-    <item>english</item>
-    <item>arabic</item>
-  </string-array>
+    <string-array name="pref_values">
+        <item>english</item>
+        <item>arabic</item>
+    </string-array>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 
 </resources>
