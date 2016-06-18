@@ -15,7 +15,7 @@
   <string name="empty_stocks_list_invalid_stock">No stocks information available.
         The stock you entered is not recognized by the server.</string>
     <string name="empty_stock_list_server_down">No data currently Available. The Server is Down.</string>
-    <string name="empty_stock_list_server_error">No data Available. Error in server.</string>
+    <string name="empty_stock_list_server_error">No data Available.</string>
     <string name="title_lineGraph">Line Graph</string>
     <string name="text_alreadySaved">This Stock is already Saved!</string>
     <string name="fab_button">Click on this button for adding more stocks to your list.</string>

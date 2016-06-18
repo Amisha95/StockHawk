@@ -4,6 +4,7 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:background="@drawable/touch_selector_dark"
+    android:padding="5dp"
     android:layout_height="match_parent">
 
     <TextView
