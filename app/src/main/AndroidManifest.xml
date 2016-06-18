@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
     <permission
         android:name="com.google.android.gcm.demo.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
@@ -43,6 +42,10 @@
             <meta-data android:name="android.appwidget.provider"
                 android:resource="@xml/app_widget_provider"/>
             </receiver>
+
+        <service android:name=".widget.DetailWidgetRemoteViewService"
+            android:enabled="true"
+            android:permission="android.permission.BIND_REMOTEVIEWS"/>
 
         <service
             android:name=".service.StockTaskService"
